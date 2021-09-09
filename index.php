@@ -11,8 +11,9 @@ class Client
     private string $ville = "";
     private int $codePostal = 0;
     private int $age = 0;
+    private DateTime $dateNaissance;
 
-	public function __construct(string $nom, string $prenom, string $email, string $tel, string $adresse, string $ville, int $codePostal, int $age)
+	public function __construct(string $nom, string $prenom, string $email, string $tel, string $adresse, string $ville, int $codePostal, int $age,int $jour,int $mois,int $annee)
     {
         $this->nom = $nom;
         $this->prenom = $prenom;
@@ -22,6 +23,9 @@ class Client
         $this->ville = $ville;
         $this->codePostal = $codePostal;
         $this->age = $age;
+        $dateAnniv = new DateTime();
+        $dateAnniv->setDate($annee,$mois,$jour);
+        $this->dateNaissance = $dateAnniv;
     }
 
     public function setNom(string $nom){
@@ -87,10 +91,33 @@ class Client
     public function getAge(){
         return $this->age;
     }
+
+    public function setDateNaissance(int $annee,int $mois,int $jour){
+        $this->dateNaissance->setDate($annee,$mois,$jour);
+       }
+       public function getDateNaissance(){
+        return $this->dateNaissance->format('d-m-Y');
+    }
+    
+
+function anniversaire() { 
+    $dateDuJour=new DateTime(('now'));
+    
+   if ($this->dateNaissance->format('d-m')==($dateDuJour)->format('d-m')) { 
+       return 'joyeux anniversaire '; 
+   } else {
+       return  'c\'est pas ton anniversaire' ;
+
+   }
     
 }
- $client=new client("Cgesgr","atzrqs","i.qfzwzrdqdmail.com", "06.21.0zrdq95", "rue lQFS<ouis quiAQdnquet","longudfsyon",542000,26);
+}
+ $client=new client("Cgesgr","atzrqs","i.qfzwzrdqdmail.com", "06.21.0zrdq95", "rue lQFS<ouis quiAQdnquet","longudfsyon",542000,26,9,9,2021);
 
-echo"<pre>";
-print_r($client);
-echo"</pre>";
+
+echo $client->anniversaire();
+$aujo=new DateTime(('now'));
+
+// echo"<pre>";
+// print_r($client);
+// echo"</pre>";
