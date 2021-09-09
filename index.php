@@ -91,6 +91,17 @@ class Client
     public function getAge(){
         return $this->age;
     }
+    public function afficher()
+    {
+        echo "Nom : " . $this->nom . "<br>";
+        echo "Prénom : " . $this->prenom . "<br>";
+        echo "Tèl. : " . $this->tel . "<br>";
+        echo "Email : " . $this->email . "<br>";
+        echo "Adresse : " . $this->adresse . "<br>";
+        echo "Ville : " . $this->ville . "<br>";
+        echo "CodePostal : " . $this->codePostal . "<br>";
+        echo "Age : " . $this->age;
+    }
 
     public function setDateNaissance(int $annee,int $mois,int $jour){
         $this->dateNaissance->setDate($annee,$mois,$jour);
@@ -101,7 +112,7 @@ class Client
     
 
 function anniversaire() { 
-    $dateDuJour=new DateTime(('now'));
+    $dateDuJour=new DateTime('now');
     
    if ($this->dateNaissance->format('d-m')==($dateDuJour)->format('d-m')) { 
        return 'joyeux anniversaire '; 
@@ -118,6 +129,8 @@ function anniversaire() {
 echo $client->anniversaire();
 $aujo=new DateTime(('now'));
 
-// echo"<pre>";
-// print_r($client);
-// echo"</pre>";
+var_dump($client->afficher());
+
+//  echo"<pre>";
+//  print_r($client);
+//  echo"</pre>";
