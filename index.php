@@ -86,9 +86,7 @@ class Client
     public function getAge(){
         return $this->age;
     }
-    public ilyess hack{
-	"ilyess fais nimporte quoi" = :)
-    }
+    
 }
  $client=new client("Cgesgr","atzrqs","i.qfzwzrdqdmail.com", "06.21.0zrdq95", "rue lQFS<ouis quiAQdnquet","longudfsyon",542000,26);
 
